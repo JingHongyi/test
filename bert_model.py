@@ -9,6 +9,8 @@ import os
 import numpy as np
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
+
+# dataset with 2 sentence
 class Mydata(Dataset):
     def __init__(self,texts):
         super(Mydata).__init__()
@@ -48,6 +50,7 @@ class Mydata(Dataset):
     def __len__(self):
         return len(self.data)
 
+## dataset with one sentence(512 token)
 # class Mydata(Dataset):
 #     def __init__(self,texts):
 #         super(Mydata).__init__()
