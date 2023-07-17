@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
+from torch.utils.data import Dataset,DataLoader
 # import os
 from transformers import BertTokenizer
 from dataset.news_data import News
