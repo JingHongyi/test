@@ -11,8 +11,8 @@ import numpy as np
 train_dataset = News(train=True)
 test_dataset = News(train=False)
 
-train_dataloader = DataLoader(train_dataset,batch_size=8,shuffle=True)
-test_dataloader = DataLoader(test_dataset,batch_size=8,shuffle=True)
+train_dataloader = DataLoader(train_dataset,batch_size=16,shuffle=True)
+test_dataloader = DataLoader(test_dataset,batch_size=16,shuffle=True)
 
 # model = BertClassifier()
 model = BertCNNClassifier(num_class=5,dropout=0.5)
