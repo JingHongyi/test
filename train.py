@@ -7,22 +7,14 @@ from dataset.news_data import News
 from dataset.news_long_data import NewsLong
 from model.roberta import BertClassifier
 from model.roberta_cnn import BertCNNClassifier
-<<<<<<< HEAD
 from model.longformer import LongformerClassifier
-=======
->>>>>>> origin/main
 import numpy as np
 
 train_dataset = NewsLong(train=True)
 test_dataset = NewsLong(train=False)
 
-<<<<<<< HEAD
-train_dataloader = DataLoader(train_dataset,batch_size=4,shuffle=True)
-test_dataloader = DataLoader(test_dataset,batch_size=4,shuffle=True)
-=======
 train_dataloader = DataLoader(train_dataset,batch_size=8,shuffle=True)
 test_dataloader = DataLoader(test_dataset,batch_size=8,shuffle=True)
->>>>>>> origin/main
 
 # model = BertClassifier()
 model = LongformerClassifier(num_class=5,dropout=0.5)
