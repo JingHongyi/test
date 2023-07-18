@@ -2,21 +2,22 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset,DataLoader
 import os
-from transformers import BertTokenizer
+from transformers import BertTokenizer,LongformerTokenizer
 from dataset.news_data import News
+from dataset.news_long_data import NewsLong
 from model.roberta import BertClassifier
 from model.roberta_cnn import BertCNNClassifier
-from tqdm import tqdm
+from model.longformer import LongformerClassifier
 import numpy as np
 
-train_dataset = News(train=True)
-test_dataset = News(train=False)
+train_dataset = NewsLong(train=True)
+test_dataset = NewsLong(train=False)
 
 train_dataloader = DataLoader(train_dataset,batch_size=16,shuffle=True)
 test_dataloader = DataLoader(test_dataset,batch_size=16,shuffle=True)
 
 # model = BertClassifier()
-model = BertCNNClassifier(num_class=5,dropout=0.5)
+model = LongformerClassifier(num_class=5,dropout=0.5)
 optim = torch.optim.Adam(model.parameters(),lr=0.00001)
 loss_fn = nn.CrossEntropyLoss()
 model.train()
