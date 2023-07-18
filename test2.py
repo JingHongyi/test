@@ -1,11 +1,11 @@
 import torch
 import random
-a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-b = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-seed = 5
-random.seed(seed)
-random.shuffle(a)
-random.seed(seed)
-random.shuffle(b)
-print(a)
-print(b)
+import os
+from transformers import BertTokenizer,LongformerModel,BertModel,LongformerTokenizer,AutoTokenizer
+tokenizer = BertTokenizer.from_pretrained('bert_pretrain/longformer-chinese')
+a = '为什么，越珍贵，越浪费。致命的伤，诞生于亲密。'
+output = tokenizer(a,max_length=20000,padding='max_length',truncation=True)
+model1 = BertModel.from_pretrained('bert_pretrain/roberta-chinese')
+model2 = LongformerModel.from_pretrained('bert_pretrain/longformer-chinese')
+# print(model1(torch.Tensor(output['input_ids']).long().unsqueeze(0)).pooler_output)
+print(model2(torch.Tensor(output['input_ids']).long().unsqueeze(0)).pooler_output.shape)
