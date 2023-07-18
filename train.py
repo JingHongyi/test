@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset,DataLoader
-import os
+# import os
 from transformers import BertTokenizer
 from dataset.news_data import News
 from model.roberta import BertClassifier
