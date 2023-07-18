@@ -6,7 +6,6 @@ from transformers import BertTokenizer
 from dataset.news_data import News
 from model.roberta import BertClassifier
 from model.roberta_cnn import BertCNNClassifier
-from tqdm import tqdm
 import numpy as np
 
 train_dataset = News(train=True)
